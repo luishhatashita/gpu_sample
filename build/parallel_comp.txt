@@ -1,0 +1,28 @@
+../src/parallel.cpp:51:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:54:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel.cpp:67:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:70:11: optimized: assigned OpenACC vector loop parallelism
+Unit growth for small function inlining: 0->0 (0%)
+
+Inlined 0 calls, eliminated 0 functions
+
+../src/parallel.cpp:51:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:54:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel.cpp:67:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:70:11: optimized: assigned OpenACC vector loop parallelism
+Unit growth for small function inlining: 0->0 (0%)
+
+Inlined 0 calls, eliminated 0 functions
+
+../src/parallel.cpp:51:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:54:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel.cpp:67:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:70:11: optimized: assigned OpenACC vector loop parallelism
+Unit growth for small function inlining: 0->0 (0%)
+
+Inlined 0 calls, eliminated 0 functions
+
+../src/parallel.cpp:51:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:54:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel.cpp:67:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel.cpp:70:11: optimized: assigned OpenACC vector loop parallelism
