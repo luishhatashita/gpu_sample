@@ -24,13 +24,13 @@ int main () {
 	fill = 100.0;
 	
 	// Initialize the field:
-	double** A;
-	double** Anew;
-	allocate2d(n, m, A);
-	allocate2d(n, m, Anew);
+	double* A;
+	double* Anew;
+	allocate1d(n, m, A);
+	allocate1d(n, m, Anew);
 	double bc[4] = {u_S, u_E, u_N, u_W};
 
-	initializeField2d(n, m, A, bc, fill);
+	initializeField1d(n, m, A, bc, fill);
 
 	cout << "Jacobi iterator for: " << n << "x" << m 
 		 << " mesh" << endl;
@@ -40,37 +40,17 @@ int main () {
 	{
 		error = 0.0;
 
-		#pragma acc kernels
-		{
-			//computeField(n, m, A, Anew, perror);
-			for( int j = 1; j < n-1; j++)
-			{
-				for( int i = 1; i < m-1; i++ )
-				{
-					Anew[j][i] = 0.25 * ( A[j][i+1] + A[j][i-1]
-										+ A[j-1][i] + A[j+1][i]);
-					error = fmax( error, fabs(Anew[j][i] - A[j][i]));
-				}
-			}
+		computeField1d(n, m, A, Anew, error);
 
-			//updateField(n, m, A, Anew);
-			for( int j = 1; j < n-1; j++)
-			{
-				for( int i = 1; i < m-1; i++ )
-				{
-					A[j][i] = Anew[j][i];
-				}
-			}
-			//cout << endl;
-		}
+		updateField1d(n, m, A, Anew);
 
 		if(iter % 50 == 0) printf("%5d, %0.6f\n", iter, error);
 
 		iter++;
 	}
 
-	deallocate2d(n, A);
-	deallocate2d(n, Anew);
+	deallocate1d(A);
+	deallocate1d(Anew);
 
 	cout << "end" << endl;
 	return 0;

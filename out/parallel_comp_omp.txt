@@ -2,4 +2,3 @@ Unit growth for small function inlining: 0->0 (0%)
 
 Inlined 0 calls, eliminated 0 functions
 
-../src/kernel.cpp:115:11: optimized: assigned OpenACC seq loop parallelism

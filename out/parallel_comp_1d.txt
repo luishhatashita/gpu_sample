@@ -1,0 +1,12 @@
+Unit growth for small function inlining: 0->0 (0%)
+
+Inlined 0 calls, eliminated 0 functions
+
+../src/parallel_1d_arrays.cpp:87:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel_1d_arrays.cpp:90:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel_1d_arrays.cpp:102:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel_1d_arrays.cpp:105:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel_1d_arrays.cpp:117:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel_1d_arrays.cpp:120:11: optimized: assigned OpenACC vector loop parallelism
+../src/parallel_1d_arrays.cpp:134:10: optimized: assigned OpenACC gang worker loop parallelism
+../src/parallel_1d_arrays.cpp:137:11: optimized: assigned OpenACC vector loop parallelism

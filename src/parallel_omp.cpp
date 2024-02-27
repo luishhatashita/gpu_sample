@@ -1,4 +1,7 @@
+//#include <stdio.h>
 #include <iostream>
+#include <cmath>
+#include <random>
 #include "allocate.h"
 #include "field.h"
 
@@ -36,33 +39,17 @@ int main () {
 		 << " mesh" << endl;
 	error = 1.0;
 	iter = 1;
+
+// g++ not capable of handling non-contiguous memory allocation, in spite of 
+// having doing it manually.
+#pragma acc data copy(A[0:n][0:m]) create(Anew[0:n][0:m])
 	while ( error > tol && iter < iter_max )
 	{
 		error = 0.0;
 
-		#pragma acc kernels
-		{
-			//computeField(n, m, A, Anew, perror);
-			for( int j = 1; j < n-1; j++)
-			{
-				for( int i = 1; i < m-1; i++ )
-				{
-					Anew[j][i] = 0.25 * ( A[j][i+1] + A[j][i-1]
-										+ A[j-1][i] + A[j+1][i]);
-					error = fmax( error, fabs(Anew[j][i] - A[j][i]));
-				}
-			}
+		computeField2d(n, m, A, Anew, error);
 
-			//updateField(n, m, A, Anew);
-			for( int j = 1; j < n-1; j++)
-			{
-				for( int i = 1; i < m-1; i++ )
-				{
-					A[j][i] = Anew[j][i];
-				}
-			}
-			//cout << endl;
-		}
+		updateField2d(n, m, A, Anew);
 
 		if(iter % 50 == 0) printf("%5d, %0.6f\n", iter, error);
 
